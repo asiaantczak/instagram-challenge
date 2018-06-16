@@ -14,10 +14,7 @@ feature 'comment' do
 
   scenario 'display name of the user who added a comment' do
     sign_up_and_sign_in
-    click_link 'New Post'
-    attach_file('post[image]', "spec/files/images/mum.jpeg")
-    fill_in 'post[description]', with: 'me and my sweet kids'
-    click_button 'submit'
+    create_a_post
     click_link 'Logout'
     sign_up_and_sign_in_other_user
     fill_in 'comment[content]', with: 'What a lovely pic! Miss you both!'

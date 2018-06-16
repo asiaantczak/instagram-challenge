@@ -25,3 +25,10 @@ def sign_in
   fill_in('Password', with: 'emma11', match: :first)
   click_button 'Log in'
 end
+
+def create_a_post
+  click_link 'New Post'
+  attach_file('post[image]', "spec/files/images/mum.jpeg")
+  fill_in 'post[description]', with: 'me and my sweet kids'
+  click_button 'submit'
+end
