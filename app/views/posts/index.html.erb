@@ -25,7 +25,8 @@
   </div>
   <div class="comment">
     <% post.comments.each do |comment| %>
-    <%= comment.content %>
+    <% @comment_user = Comment.find_by(id: comment.user_id) %>
+    <%= comment.content %> <%= comment.user.name %>
     <% end %>
   </div>
   <%= form_for([post, post.comments.build]) do |f| %>
