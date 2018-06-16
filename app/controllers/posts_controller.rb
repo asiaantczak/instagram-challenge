@@ -5,7 +5,12 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = current_user.posts.create
+    if current_user
+      @post = current_user.posts.create
+    else
+      flash[:alert] = "You need to sign in or sign up before continuing."
+      redirect_to root_path
+    end
   end
 
   def create
