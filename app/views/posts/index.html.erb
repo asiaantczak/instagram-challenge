@@ -23,4 +23,14 @@
     <%= post.get_upvotes.size %>
     <% end %>
   </div>
+  <div class="comment">
+    <% post.comments.each do |comment| %>
+    <%= comment.content %>
+    <% end %>
+  </div>
+  <%= form_for([post, post.comments.build]) do |f| %>
+    <%= f.label :Comment %>
+    <%= f.text_area :content %>
+    <%= f.submit "Comment" %>
+  <% end %>
 <% end %>
